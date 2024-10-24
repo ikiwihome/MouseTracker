@@ -82,7 +82,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 int screenHeight = devMode.dmPelsHeight;
 
                 char text[50];
-                sprintf_s(text, sizeof(text), "X: %ld, Y: %ld", 
+                sprintf_s(text, sizeof(text), "X : %ld, Y : %ld", 
                     pt.x * screenWidth / (GetSystemMetrics(SM_CXSCREEN) - 1), 
                     pt.y * screenHeight / (GetSystemMetrics(SM_CYSCREEN) - 1));
                 
@@ -92,14 +92,36 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 GetClientRect(hwnd, &rect);
                 
                 FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW + 1));
-                
+
+                HFONT hFont = CreateFont(
+                    15,
+                    0,
+                    0,
+                    0,
+                    FW_NORMAL,
+                    FALSE,
+                    FALSE,
+                    FALSE,
+                    DEFAULT_CHARSET,
+                    OUT_DEFAULT_PRECIS,
+                    CLIP_DEFAULT_PRECIS,
+                    DEFAULT_QUALITY,
+                    DEFAULT_PITCH,
+                    "Arial"
+                );
+
+                HFONT hOldFont = (HFONT)SelectObject(hdc, hFont);
+
                 DrawTextA(hdc, text, -1, &rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-                
+
+                // Clean up
+                SelectObject(hdc, hOldFont);
+                DeleteObject(hFont);
                 ReleaseDC(hwnd, hdc);
             }
             return 0;
         }
-        
+
         case WM_CLOSE:
             DestroyWindow(hwnd);
             return 0;
