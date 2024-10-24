@@ -2,7 +2,9 @@
 
 # ![](MouseTracker.ico) MouseTracker
 
-#### 让捕获屏幕坐标更简单
+#### 让捕获屏幕坐标更简单 Make Capturing Screen Position Easier
+
+---
 
 </div>
 
@@ -16,7 +18,7 @@
 ![](MouseTracker.png)
 
 
-GCC编译命令(GCC需自行安装)：
+## How to compile GCC编译命令(GCC需自行安装)：
 
 ```powershell
 windres -i "icon.rc" -o "icon.o"
@@ -31,3 +33,11 @@ windres -i "icon.rc" -o "icon.o"
 
 g++.exe -Os -s -mwindows -lgdi32 -fno-exceptions -fno-rtti -fno-threadsafe-statics -ffunction-sections -fdata-sections -Wl,--gc-sections -flto MouseTracker.cpp icon.o -o MouseTracker.exe
 ```
+
+## License
+
+This project is open source under the MIT license. Welcome everyone to use and contribute code. Thank you for the open source spirit of the original author ikiwi.
+
+[MIT](https://opensource.org/licenses/MIT)
+
+Copyright (c) 2024 ikiwi
