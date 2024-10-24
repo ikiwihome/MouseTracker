@@ -1,4 +1,10 @@
-# ![](MouseTracker.ico)MouseTracker
+<div align="center">
+
+# ![](MouseTracker.ico) MouseTracker
+
+#### 让捕获屏幕坐标更简单
+
+</div>
 
 实时显示鼠标坐标位置的极简Win32窗体应用，基于C++实现，适用于Windows 10以上系统，生成的exe文件最小只有18KB。
 
