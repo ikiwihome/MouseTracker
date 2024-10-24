@@ -1,0 +1,1 @@
+x86_64-w64-mingw32-g++.exe -Os -s -mwindows -lgdi32 -fno-exceptions -fno-rtti -fno-threadsafe-statics -ffunction-sections -fdata-sections -Wl,--gc-sections -flto MouseTracker.cpp -o MouseTracker.exe
